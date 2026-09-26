@@ -470,7 +470,7 @@ html:not(.js) .ln { opacity: 1; transform: none; }
 .float-chip small { color: var(--text-2); font-size: 12px; }
 .fc-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: rgba(var(--a1-rgb), 0.15); color: var(--a1); }
 .fc-icon .icon { width: 17px; height: 17px; }
-.chip-a { top: -26px; right: -14px; }
+.chip-a { top: -52px; right: -22px; }
 .chip-b { bottom: -30px; left: 20px; animation-delay: -2s; }
 .chip-b .fc-icon { background: rgba(var(--a2-rgb), 0.15); color: var(--a2); }
 .chip-c { bottom: -30px; right: 28px; animation-delay: -4s; }
