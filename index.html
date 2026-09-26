@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firat Karatasoglu — Fullstack Developer · AI/LLM Engineer</title>
+  <meta name="description" content="Fullstack Developer and AI/LLM Engineer. Python/FastAPI backends, LLM, RAG and agent pipelines, React/TypeScript frontends." />
+  <meta name="author" content="Firat Karatasoglu" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Firat Karatasoglu — Fullstack Developer · AI/LLM Engineer" />
+  <meta property="og:description" content="Python/FastAPI backends, LLM, RAG and agent pipelines, React/TypeScript frontends." />
+  <meta property="og:url" content="https://frat-karatasoglu.github.io/" />
+  <meta property="og:image" content="https://frat-karatasoglu.github.io/assets/img/fkpos/1.webp" />
+  <link rel="canonical" href="https://frat-karatasoglu.github.io/" />
+  <meta name="theme-color" content="#07080c" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7bff'/%3E%3Cstop offset='1' stop-color='%232dd4bf'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%2307080c'%3EFK%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script>
+    // Runs before paint: enables JS-only styles and restores saved theme/language without a flash.
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('fk-theme');
+        if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+        var l = localStorage.getItem('fk-lang');
+        if (!l) l = (navigator.language || '').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+        d.setAttribute('lang', l === 'tr' ? 'tr' : 'en');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+      <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+      <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></symbol>
+      <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <svg class="preloader-logo" viewBox="0 0 120 60">
+        <defs>
+          <linearGradient id="pl-g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8b7bff" /><stop offset="1" stop-color="#2dd4bf" />
+          </linearGradient>
+        </defs>
+        <text x="60" y="46" text-anchor="middle">FK</text>
+      </svg>
+      <div class="preloader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo" aria-label="Home">
+        <span class="logo-mark">FK</span>
+        <span class="logo-text" data-i18n="hero.nameShort">Firat K.</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="tr" aria-pressed="false">TR</button>
+          <span class="lang-thumb" aria-hidden="true"></span>
+        </div>
+        <button type="button" class="icon-btn theme-toggle" data-i18n-aria="a11y.theme" aria-label="Toggle theme">
+          <svg class="icon ic-sun"><use href="#i-sun" /></svg>
+          <svg class="icon ic-moon"><use href="#i-moon" /></svg>
+        </button>
+        <button type="button" class="icon-btn menu-toggle" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="a11y.menu" aria-label="Menu">
+          <span class="burger"><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-links" aria-label="Mobile">
+      <a href="#about"><span class="mm-num">01</span><span data-i18n="nav.about">About</span></a>
+      <a href="#experience"><span class="mm-num">02</span><span data-i18n="nav.experience">Experience</span></a>
+      <a href="#projects"><span class="mm-num">03</span><span data-i18n="nav.projects">Projects</span></a>
+      <a href="#skills"><span class="mm-num">04</span><span data-i18n="nav.skills">Skills</span></a>
+      <a href="#contact"><span class="mm-num">05</span><span data-i18n="nav.contact">Contact</span></a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="blob blob-2" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="status-pill hero-in" style="--d:0">
+            <span class="pulse-dot"></span><span data-i18n="hero.status">Available for new opportunities</span>
+          </span>
+          <p class="hero-hi hero-in" style="--d:1" data-i18n="hero.hi">Hi, I'm</p>
+          <h1 class="hero-name hero-in" style="--d:2" data-i18n="hero.name">Firat Karatasoglu</h1>
+          <p class="hero-role hero-in" style="--d:3">
+            <span class="typed" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero-lead hero-in" style="--d:4" data-i18n="hero.lead">I build software products end-to-end.</p>
+          <p class="hero-loc hero-in" style="--d:5">
+            <svg class="icon"><use href="#i-pin" /></svg><span data-i18n="hero.location">Saint Petersburg, Russia · open to remote work</span>
+          </p>
+          <div class="hero-ctas hero-in" style="--d:6">
+            <a href="#projects" class="btn btn-primary magnetic">
+              <span data-i18n="hero.cta1">View my work</span><svg class="icon"><use href="#i-arrow-right" /></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost magnetic"><span data-i18n="hero.cta2">Get in touch</span></a>
+          </div>
+          <div class="hero-socials hero-in" style="--d:7">
+            <a href="https://github.com/frat-karatasoglu" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github" /></svg></a>
+            <a href="https://linkedin.com/in/frat-karatasoglu" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin" /></svg></a>
+            <a href="https://t.me/frat_karatasoglu" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon"><use href="#i-send" /></svg></a>
+            <a href="mailto:karatasoglufirat@gmail.com" aria-label="Email"><svg class="icon"><use href="#i-mail" /></svg></a>
+          </div>
+        </div>
+
+        <div class="hero-visual hero-in" style="--d:3" aria-hidden="true">
+          <div class="code-card tilt">
+            <div class="code-head">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="code-file">engineer.py</span>
+              <span class="code-lang">Python</span>
+            </div>
+            <pre class="code-body"><code><span class="ln"><span class="k">class</span> <span class="c">Engineer</span>:</span>
+<span class="ln">    name  = <span class="s">"Fırat Karataşoğlu"</span></span>
+<span class="ln">    roles = [<span class="s">"Fullstack"</span>, <span class="s">"AI/LLM"</span>]</span>
+<span class="ln">    stack = {</span>
+<span class="ln">        <span class="s">"backend"</span>:  [<span class="s">"Python"</span>, <span class="s">"FastAPI"</span>, <span class="s">"PostgreSQL"</span>],</span>
+<span class="ln">        <span class="s">"ai"</span>:       [<span class="s">"LangChain"</span>, <span class="s">"RAG"</span>, <span class="s">"Agents"</span>],</span>
+<span class="ln">        <span class="s">"frontend"</span>: [<span class="s">"React"</span>, <span class="s">"TypeScript"</span>],</span>
+<span class="ln">    }</span>
+<span class="ln"></span>
+<span class="ln">    <span class="k">def</span> <span class="f">ship</span>(self, idea):</span>
+<span class="ln">        <span class="cm"># grounded in real data, tested, deployed</span></span>
+<span class="ln">        <span class="k">return</span> <span class="c">Product</span>(idea).<span class="f">build</span>().<span class="f">test</span>().<span class="f">deploy</span>()</span></code></pre>
+          </div>
+          <div class="float-chip chip-a">
+            <span class="fc-icon"><svg class="icon"><use href="#i-monitor" /></svg></span>
+            <span><b>FK POS</b><small data-i18n="hero.chipA">5 active businesses</small></span>
+          </div>
+          <div class="float-chip chip-b">
+            <span class="fc-icon"><svg class="icon"><use href="#i-cap" /></svg></span>
+            <span><b>ITMO</b><small data-i18n="hero.chipB">MSc Artificial Intelligence</small></span>
+          </div>
+          <div class="float-chip chip-c">
+            <span class="fc-icon"><svg class="icon"><use href="#i-sparkles" /></svg></span>
+            <span><b>Google AI Academy</b><small data-i18n="hero.chipC">1 of 1,500 selected</small></span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#stats" class="scroll-hint" aria-label="Scroll">
+        <span class="mouse"><span></span></span>
+        <span data-i18n="hero.scroll">Scroll</span>
+      </a>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" id="stats" aria-label="Highlights">
+      <div class="container stats-grid">
+        <div class="stat" data-reveal style="--d:0">
+          <span class="stat-num" data-count="5">0</span>
+          <span class="stat-label" data-i18n="stats.1">businesses run on FK POS</span>
+        </div>
+        <div class="stat" data-reveal style="--d:1">
+          <span class="stat-num" data-count="8">0</span>
+          <span class="stat-label" data-i18n="stats.2">industry-specific POS versions</span>
+        </div>
+        <div class="stat" data-reveal style="--d:2">
+          <span class="stat-num" data-count="35" data-suffix="+">0</span>
+          <span class="stat-label" data-i18n="stats.3">REST endpoints designed for Koopilot</span>
+        </div>
+        <div class="stat" data-reveal style="--d:3">
+          <span class="stat-num" data-count="31700" data-suffix="+">0</span>
+          <span class="stat-label" data-i18n="stats.4">applicants — selected among 1,500 for Google AI Academy</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-num">01</span><span data-i18n="about.label">About</span></span>
+          <h2 class="section-title" data-split data-i18n="about.title">Engineer who ships *products,* not just code.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="lead" data-reveal data-i18n="about.p1"></p>
+            <p data-reveal style="--d:1" data-i18n="about.p2"></p>
+            <p data-reveal style="--d:2" data-i18n="about.p3"></p>
+
+            <div class="langs" data-reveal style="--d:3">
+              <h3 class="mini-title" data-i18n="about.langTitle">Languages</h3>
+              <div class="lang-row">
+                <span class="lang-name" data-i18n="about.lTr">Turkish</span>
+                <span class="lang-bar"><span style="--w:100%"></span></span>
+                <span class="lang-level" data-i18n="about.native">Native</span>
+              </div>
+              <div class="lang-row">
+                <span class="lang-name" data-i18n="about.lRu">Russian</span>
+                <span class="lang-bar"><span style="--w:85%"></span></span>
+                <span class="lang-level">C1</span>
+              </div>
+              <div class="lang-row">
+                <span class="lang-name" data-i18n="about.lEn">English</span>
+                <span class="lang-bar"><span style="--w:55%"></span></span>
+                <span class="lang-level">B1</span>
+              </div>
+            </div>
+          </div>
+
+          <figure class="about-photo" data-reveal="right">
+            <div class="photo-frame spotlight">
+              <img src="assets/img/edu/itmo.webp" alt="ITMO University building, Saint Petersburg" width="768" height="1024" loading="lazy" />
+              <figcaption>
+                <span class="photo-tag"><svg class="icon"><use href="#i-cap" /></svg>ITMO · AI Talent Hub</span>
+                <span data-i18n="about.photo">Master's in Artificial Intelligence, Saint Petersburg</span>
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+
+        <div class="highlights">
+          <article class="hl-card spotlight" data-reveal style="--d:0">
+            <span class="hl-icon"><svg class="icon"><use href="#i-cap" /></svg></span>
+            <h3 data-i18n="about.h1t">ITMO University</h3>
+            <p data-i18n="about.h1d"></p>
+          </article>
+          <article class="hl-card spotlight" data-reveal style="--d:1">
+            <span class="hl-icon"><svg class="icon"><use href="#i-sparkles" /></svg></span>
+            <h3 data-i18n="about.h2t">Google AI &amp; Technology Academy</h3>
+            <p data-i18n="about.h2d"></p>
+          </article>
+          <article class="hl-card spotlight" data-reveal style="--d:2">
+            <span class="hl-icon"><svg class="icon"><use href="#i-bot" /></svg></span>
+            <h3 data-i18n="about.h3t">AI Product Hack 2026</h3>
+            <p data-i18n="about.h3d"></p>
+          </article>
+          <article class="hl-card spotlight" data-reveal style="--d:3">
+            <span class="hl-icon"><svg class="icon"><use href="#i-globe" /></svg></span>
+            <h3 data-i18n="about.h4t">Rossotrudnichestvo Scholarship</h3>
+            <p data-i18n="about.h4d"></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-num">02</span><span data-i18n="exp.label">Experience</span></span>
+          <h2 class="section-title" data-split data-i18n="exp.title">Where I've been *building.*</h2>
+        </div>
+
+        <div class="exp-grid">
+          <div class="exp-col">
+            <h3 class="col-title" data-reveal><svg class="icon"><use href="#i-briefcase" /></svg><span data-i18n="exp.work">Work</span></h3>
+            <div class="timeline" id="timeline-work">
+              <div class="tl-line" aria-hidden="true"><span class="tl-fill"></span></div>
+            </div>
+          </div>
+          <div class="exp-col">
+            <h3 class="col-title" data-reveal><svg class="icon"><use href="#i-cap" /></svg><span data-i18n="exp.edu">Education &amp; programs</span></h3>
+            <div class="timeline" id="timeline-edu">
+              <div class="tl-line" aria-hidden="true"><span class="tl-fill"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-head section-head-row">
+          <div data-reveal>
+            <span class="eyebrow"><span class="eyebrow-num">03</span><span data-i18n="proj.label">Projects</span></span>
+            <h2 class="section-title" data-split data-i18n="proj.title">Selected *work.*</h2>
+            <p class="section-sub" data-i18n="proj.sub"></p>
+          </div>
+          <div class="filters" role="tablist" data-reveal style="--d:1">
+            <button type="button" class="filter is-active" data-filter="all" role="tab" aria-selected="true" data-i18n="filter.all">All</button>
+            <button type="button" class="filter" data-filter="ai" role="tab" aria-selected="false" data-i18n="filter.ai">AI &amp; LLM</button>
+            <button type="button" class="filter" data-filter="fullstack" role="tab" aria-selected="false" data-i18n="filter.fullstack">Fullstack</button>
+            <button type="button" class="filter" data-filter="frontend" role="tab" aria-selected="false" data-i18n="filter.frontend">Frontend</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+
+        <h3 class="sub-heading" data-reveal data-i18n="proj.others">Other projects &amp; client work</h3>
+        <div class="others-grid" id="others-grid"></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>Supabase</span><span>Rust</span><span>Tauri</span><span>Next.js</span><span>Gemini</span><span>OpenAI</span><span>Docker</span>
+          <span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>Supabase</span><span>Rust</span><span>Tauri</span><span>Next.js</span><span>Gemini</span><span>OpenAI</span><span>Docker</span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-num">04</span><span data-i18n="skills.label">Skills</span></span>
+          <h2 class="section-title" data-split data-i18n="skills.title">The *toolbox.*</h2>
+          <p class="section-sub" data-i18n="skills.sub"></p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card spotlight skill-wide" data-reveal style="--d:0">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-cpu" /></svg></span><h3 data-i18n="skills.ai">AI &amp; LLM</h3></div>
+            <div class="chips">
+              <span class="chip chip-hot">OpenAI API</span><span class="chip chip-hot">Gemini API</span><span class="chip chip-hot">LangChain</span><span class="chip chip-hot">RAG</span><span class="chip">Grounding</span><span class="chip">Prompt engineering</span><span class="chip">Function calling</span><span class="chip">AI agents</span><span class="chip">Document parsing</span><span class="chip">scikit-learn</span><span class="chip">Pandas</span>
+            </div>
+          </article>
+          <article class="skill-card spotlight" data-reveal style="--d:1">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-server" /></svg></span><h3 data-i18n="skills.backend">Backend</h3></div>
+            <div class="chips">
+              <span class="chip chip-hot">FastAPI</span><span class="chip">Flask</span><span class="chip">REST API</span><span class="chip">BFF / API Gateway</span><span class="chip" data-i18n="skills.multitenant">Multi-tenant architecture</span><span class="chip">Webhooks</span><span class="chip">Stripe</span><span class="chip">EF Core</span>
+            </div>
+          </article>
+          <article class="skill-card spotlight" data-reveal style="--d:2">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-braces" /></svg></span><h3 data-i18n="skills.langs">Languages</h3></div>
+            <div class="chips">
+              <span class="chip chip-hot">Python</span><span class="chip chip-hot">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Rust</span><span class="chip">C#</span>
+            </div>
+          </article>
+          <article class="skill-card spotlight" data-reveal style="--d:3">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-layout" /></svg></span><h3 data-i18n="skills.frontend">Frontend</h3></div>
+            <div class="chips">
+              <span class="chip chip-hot">React</span><span class="chip">Next.js 14</span><span class="chip">Redux Toolkit</span><span class="chip">Zustand</span><span class="chip">Tailwind CSS</span><span class="chip">Vite</span><span class="chip">VKUI</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+            </div>
+          </article>
+          <article class="skill-card spotlight" data-reveal style="--d:4">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-db" /></svg></span><h3 data-i18n="skills.db">Databases</h3></div>
+            <div class="chips">
+              <span class="chip chip-hot">PostgreSQL</span><span class="chip">SQL</span><span class="chip">Supabase</span><span class="chip">SQLite</span>
+            </div>
+          </article>
+          <article class="skill-card spotlight" data-reveal style="--d:5">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-monitor" /></svg></span><h3 data-i18n="skills.desktop">Desktop</h3></div>
+            <div class="chips">
+              <span class="chip chip-hot">Tauri</span><span class="chip">Rust</span><span class="chip">.NET MAUI</span>
+            </div>
+          </article>
+          <article class="skill-card spotlight" data-reveal style="--d:6">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-cloud" /></svg></span><h3 data-i18n="skills.devops">DevOps &amp; tools</h3></div>
+            <div class="chips">
+              <span class="chip">Docker</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">CI/CD</span><span class="chip">Render</span><span class="chip">Vercel</span><span class="chip">Yandex Cloud</span><span class="chip">Streamlit</span>
+            </div>
+          </article>
+          <article class="skill-card spotlight" data-reveal style="--d:7">
+            <div class="skill-head"><span class="skill-icon"><svg class="icon"><use href="#i-bot" /></svg></span><h3 data-i18n="skills.assist">AI assistants in development</h3></div>
+            <div class="chips">
+              <span class="chip">Cursor</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span>
+            </div>
+            <p class="skill-quote" data-i18n="skills.assistNote"></p>
+          </article>
+        </div>
+
+        <h3 class="sub-heading" data-reveal data-i18n="certs.title">Certificates</h3>
+        <div class="certs-grid">
+          <div class="cert" data-reveal style="--d:0"><svg class="icon"><use href="#i-award" /></svg><div><b>Cloud Services Engineer</b><span>Yandex Practicum · 2025</span></div></div>
+          <div class="cert" data-reveal style="--d:1"><svg class="icon"><use href="#i-award" /></svg><div><b>Mini Application Project</b><span>VK Education · 2025</span></div></div>
+          <div class="cert" data-reveal style="--d:2"><svg class="icon"><use href="#i-award" /></svg><div><b>Google Project Management</b><span>Coursera · 2026</span></div></div>
+          <div class="cert" data-reveal style="--d:3"><svg class="icon"><use href="#i-award" /></svg><div><b>Embedded Systems Programming</b><span>UrFU · 2025</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-card" data-reveal="scale">
+          <div class="contact-bg" aria-hidden="true"></div>
+          <span class="eyebrow"><span class="eyebrow-num">05</span><span data-i18n="contact.label">Contact</span></span>
+          <h2 class="contact-title" data-split data-i18n="contact.title">Let's build something *that works.*</h2>
+          <p class="contact-sub" data-i18n="contact.sub"></p>
+
+          <div class="email-row">
+            <a class="email-link magnetic" href="mailto:karatasoglufirat@gmail.com">
+              <svg class="icon"><use href="#i-mail" /></svg>karatasoglufirat@gmail.com
+            </a>
+            <button type="button" class="icon-btn copy-btn" data-copy="karatasoglufirat@gmail.com" data-i18n-aria="contact.copy" aria-label="Copy email">
+              <svg class="icon ic-copy"><use href="#i-copy" /></svg>
+              <svg class="icon ic-check"><use href="#i-check" /></svg>
+            </button>
+          </div>
+
+          <div class="social-grid">
+            <a class="social spotlight" href="https://t.me/frat_karatasoglu" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-send" /></svg><span><b>Telegram</b><small>@frat_karatasoglu</small></span><svg class="icon arrow"><use href="#i-arrow-up-right" /></svg>
+            </a>
+            <a class="social spotlight" href="https://linkedin.com/in/frat-karatasoglu" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-linkedin" /></svg><span><b>LinkedIn</b><small>in/frat-karatasoglu</small></span><svg class="icon arrow"><use href="#i-arrow-up-right" /></svg>
+            </a>
+            <a class="social spotlight" href="https://github.com/frat-karatasoglu" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-github" /></svg><span><b>GitHub</b><small>frat-karatasoglu</small></span><svg class="icon arrow"><use href="#i-arrow-up-right" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> <span data-i18n="hero.name">Firat Karatasoglu</span>. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <span class="footer-built" data-i18n="footer.built">Built with HTML, CSS &amp; vanilla JavaScript.</span>
+      <a href="#top" class="to-top" data-i18n-aria="footer.top" aria-label="Back to top"><svg class="icon"><use href="#i-arrow-up" /></svg></a>
+    </div>
+  </footer>
+
+  <!-- Project modal -->
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" tabindex="-1">
+      <button type="button" class="icon-btn modal-close" data-close data-i18n-aria="a11y.close" aria-label="Close">
+        <svg class="icon"><use href="#i-x" /></svg>
+      </button>
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
