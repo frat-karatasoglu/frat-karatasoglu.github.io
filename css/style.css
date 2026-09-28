@@ -282,8 +282,8 @@ code { font-family: var(--font-mono); font-size: 0.88em; padding: 0.1em 0.4em; b
 .lang-switch button { position: relative; z-index: 1; width: 38px; height: 30px; border-radius: 8px; font-family: var(--font-mono); font-size: 12.5px; font-weight: 500; color: var(--text-3); transition: color 0.3s; }
 .lang-switch button[aria-pressed='true'] { color: var(--on-grad); }
 .lang-thumb { position: absolute; top: 4px; left: 4px; width: 38px; height: 30px; border-radius: 8px; background: var(--grad); transition: transform 0.45s var(--ease); }
-html[lang='tr'] .lang-thumb { transform: translateX(38px); }
-html[lang='ru'] .lang-thumb { transform: translateX(76px); }
+html[lang='ru'] .lang-thumb { transform: translateX(38px); }
+html[lang='tr'] .lang-thumb { transform: translateX(76px); }
 
 /* Space Grotesk has no Cyrillic glyphs; Manrope keeps headings in the same geometric style. */
 html[lang='ru'] { --font-display: 'Manrope', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif; }

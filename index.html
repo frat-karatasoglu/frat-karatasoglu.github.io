@@ -29,6 +29,7 @@
         var t = localStorage.getItem('fk-theme');
         if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
         var l = localStorage.getItem('fk-lang');
+        // A language picked earlier wins; otherwise follow the browser language (tr, ru), else English.
         if (l !== 'tr' && l !== 'ru' && l !== 'en') {
           var n = (navigator.language || '').toLowerCase();
           l = n.indexOf('tr') === 0 ? 'tr' : n.indexOf('ru') === 0 ? 'ru' : 'en';
@@ -116,8 +117,8 @@
       <div class="nav-actions">
         <div class="lang-switch" role="group" aria-label="Language">
           <button type="button" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" data-lang="tr" aria-pressed="false">TR</button>
           <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+          <button type="button" data-lang="tr" aria-pressed="false">TR</button>
           <span class="lang-thumb" aria-hidden="true"></span>
         </div>
         <button type="button" class="icon-btn theme-toggle" data-i18n-aria="a11y.theme" aria-label="Toggle theme">
