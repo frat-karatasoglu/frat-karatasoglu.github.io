@@ -1,19 +1,20 @@
-/* Bilingual content: projects, other work and timeline. Every text field is { en, tr }. */
+/* Multilingual content: projects, other work and timeline. Every text field is { en, tr, ru }. */
 
 window.PROJECTS = [
   {
     id: 'fkpos',
     cats: ['fullstack'],
     featured: true,
-    title: { en: 'FK POS', tr: 'FK POS' },
-    badge: { en: 'Commercial product', tr: 'Ticari ürün' },
-    tagline: { en: 'Offline-first point-of-sale software', tr: 'Offline-first kasa (POS) yazılımı' },
-    period: { en: 'June 2026 — present', tr: 'Haziran 2026 — halen' },
-    role: { en: 'Founder & Fullstack Developer', tr: 'Kurucu & Fullstack Geliştirici' },
-    context: { en: 'Turkish market · remote', tr: 'Türkiye pazarı · uzaktan' },
+    title: { en: 'FK POS', tr: 'FK POS', ru: 'FK POS' },
+    badge: { en: 'Commercial product', tr: 'Ticari ürün', ru: 'Коммерческий продукт' },
+    tagline: { en: 'Offline-first point-of-sale software', tr: 'Offline-first kasa (POS) yazılımı', ru: 'Кассовое ПО (POS) с offline-first архитектурой' },
+    period: { en: 'June 2026 — present', tr: 'Haziran 2026 — halen', ru: 'Июнь 2026 — н. в.' },
+    role: { en: 'Founder & Fullstack Developer', tr: 'Kurucu & Fullstack Geliştirici', ru: 'Основатель и Fullstack-разработчик' },
+    context: { en: 'Turkish market · remote', tr: 'Türkiye pazarı · uzaktan', ru: 'Рынок Турции · удалённо' },
     summary: {
       en: 'Commercial point-of-sale software I build and sell to small businesses in Turkey. The register keeps working without internet and syncs to a Supabase cloud module, so the owner can check the till remotely.',
-      tr: 'Türkiye\'deki küçük işletmelere geliştirip sattığım ticari kasa yazılımı. Kasa internet olmadan çalışmaya devam ediyor ve Supabase bulut modülüyle senkronize oluyor; işletme sahibi kasayı uzaktan görebiliyor.'
+      tr: 'Türkiye\'deki küçük işletmelere geliştirip sattığım ticari kasa yazılımı. Kasa internet olmadan çalışmaya devam ediyor ve Supabase bulut modülüyle senkronize oluyor; işletme sahibi kasayı uzaktan görebiliyor.',
+      ru: 'Коммерческое кассовое ПО, которое я разрабатываю и продаю малому бизнесу в Турции. Касса продолжает работать без интернета и синхронизируется с облачным модулем на Supabase, поэтому владелец может проверять кассу удалённо.'
     },
     highlights: {
       en: [
@@ -33,12 +34,21 @@ window.PROJECTS = [
         'Satış, stok, cari hesap, irsaliye, toplu fiyat güncelleme ve raporlama modülleri.',
         'Aktif işletmelerden birinde günlük ortalama ~21.000 işlem hacmi işleniyor.',
         'Ürünün tamamından sorumluyum: mimari, geliştirme, müşteride kurulum ve destek.'
+      ],
+      ru: [
+        'Offline-first архитектура: продажи и кассовые операции продолжают работать без подключения к интернету.',
+        'Облачный модуль на Supabase: состояние кассы автоматически синхронизируется при появлении связи и каждые 2 минуты.',
+        'Интеграции сканера штрихкодов, электронных весов, термопринтера чеков и второго экрана покупателя на Rust через команды Tauri.',
+        'Зашифрованный резервный формат <code>.POS</code> в одном файле.',
+        'Модули продаж, склада, контрагентов, накладных, массового обновления цен и отчётности.',
+        'На одном из действующих предприятий средний дневной объём транзакций — около 21 000.',
+        'Отвечаю за продукт целиком: архитектура, разработка, установка у клиента и поддержка.'
       ]
     },
     metrics: [
-      { v: '5', l: { en: 'active businesses', tr: 'aktif işletme' } },
-      { v: '8', l: { en: 'industry versions', tr: 'sektörel versiyon' } },
-      { v: '2 min', vtr: '2 dk', l: { en: 'cloud sync interval', tr: 'bulut senkron aralığı' } }
+      { v: '5', l: { en: 'active businesses', tr: 'aktif işletme', ru: 'предприятий' } },
+      { v: '8', l: { en: 'industry versions', tr: 'sektörel versiyon', ru: 'отраслевых версий' } },
+      { v: '2 min', vtr: '2 dk', vru: '2 мин', l: { en: 'cloud sync interval', tr: 'bulut senkron aralığı', ru: 'интервал синхронизации' } }
     ],
     stack: ['React', 'TypeScript', 'Tauri', 'Rust', 'Supabase', 'PostgreSQL', 'Windows'],
     link: { url: 'https://fkposyazilim.com', label: 'fkposyazilim.com', type: 'site' },
@@ -46,21 +56,23 @@ window.PROJECTS = [
     images: ['assets/img/fkpos/1.webp', 'assets/img/fkpos/2.webp', 'assets/img/fkpos/3.webp'],
     captions: {
       en: ['Sales screen', 'Management dashboard', 'Login'],
-      tr: ['Satış ekranı', 'Yönetim paneli', 'Giriş ekranı']
+      tr: ['Satış ekranı', 'Yönetim paneli', 'Giriş ekranı'],
+      ru: ['Экран продаж', 'Панель управления', 'Вход']
     }
   },
   {
     id: 'koopilot',
     cats: ['ai', 'fullstack'],
-    title: { en: 'Koopilot', tr: 'Koopilot' },
-    badge: { en: 'Google AI Academy Hackathon', tr: 'Google AI Academy Hackathonu' },
-    tagline: { en: 'Multi-tenant operations platform with an AI assistant', tr: 'AI asistanlı, çok kiracılı operasyon platformu' },
-    period: { en: 'May 2026 · 2 weeks', tr: 'Mayıs 2026 · 2 hafta' },
-    role: { en: 'Backend Developer / API Architect', tr: 'Backend Geliştirici / API Mimarı' },
-    team: { en: 'Team of 5', tr: '5 kişilik takım' },
+    title: { en: 'Koopilot', tr: 'Koopilot', ru: 'Koopilot' },
+    badge: { en: 'Google AI Academy Hackathon', tr: 'Google AI Academy Hackathonu', ru: 'Хакатон Google AI Academy' },
+    tagline: { en: 'Multi-tenant operations platform with an AI assistant', tr: 'AI asistanlı, çok kiracılı operasyon platformu', ru: 'Мультиарендная (multi-tenant) операционная платформа с ИИ-ассистентом' },
+    period: { en: 'May 2026 · 2 weeks', tr: 'Mayıs 2026 · 2 hafta', ru: 'Май 2026 · 2 недели' },
+    role: { en: 'Backend Developer / API Architect', tr: 'Backend Geliştirici / API Mimarı', ru: 'Backend-разработчик / архитектор API' },
+    team: { en: 'Team of 5', tr: '5 kişilik takım', ru: 'Команда из 5 человек' },
     summary: {
       en: 'Operations platform for small businesses (demo: an olive-oil cooperative) with an AI daily summary, stock-out forecasting and an assistant that answers only from the company\'s own data.',
-      tr: 'Küçük işletmeler için operasyon platformu (demo: bir zeytinyağı kooperatifi): AI günlük özet, stok tükenme tahmini ve yalnızca şirketin kendi verisinden yanıt veren bir asistan.'
+      tr: 'Küçük işletmeler için operasyon platformu (demo: bir zeytinyağı kooperatifi): AI günlük özet, stok tükenme tahmini ve yalnızca şirketin kendi verisinden yanıt veren bir asistan.',
+      ru: 'Операционная платформа для малого бизнеса (демо: кооператив по производству оливкового масла): ежедневная ИИ-сводка, прогноз исчерпания запасов и ассистент, отвечающий только на основе данных самой компании.'
     },
     highlights: {
       en: [
@@ -74,12 +86,18 @@ window.PROJECTS = [
         'Supabase PostgreSQL üzerinde 10 tablodan oluşan veri modeli.',
         'Grounded LLM mimarisi: her model çağrısından önce bağlam veritabanından çekiliyor ve kullanıcının rolüyle sınırlandırılıyor — asistan iş verisi uydurmuyor.',
         'SKU bazlı stok tahmini servisi; API Render\'a, web uygulamaları Vercel\'e deploy edildi.'
+      ],
+      ru: [
+        'REST API на FastAPI: 35+ эндпоинтов, четыре уровня ролей и изоляция каждого запроса по <code>tenant_id</code>.',
+        'Модель данных из 10 таблиц на Supabase PostgreSQL.',
+        'Grounded-архитектура LLM: контекст подтягивается из базы данных перед каждым вызовом модели и ограничивается ролью пользователя — ассистент не выдумывает бизнес-данные.',
+        'Сервис прогнозирования запасов на уровне SKU; API развёрнут на Render, веб-приложения — на Vercel.'
       ]
     },
     metrics: [
-      { v: '35+', l: { en: 'API endpoints', tr: 'API endpoint' } },
-      { v: '4', l: { en: 'role levels', tr: 'rol seviyesi' } },
-      { v: '10', l: { en: 'DB tables', tr: 'veritabanı tablosu' } }
+      { v: '35+', l: { en: 'API endpoints', tr: 'API endpoint', ru: 'эндпоинтов API' } },
+      { v: '4', l: { en: 'role levels', tr: 'rol seviyesi', ru: 'уровня ролей' } },
+      { v: '10', l: { en: 'DB tables', tr: 'veritabanı tablosu', ru: 'таблиц в БД' } }
     ],
     stack: ['Python 3.11', 'FastAPI', 'Supabase PostgreSQL', 'Next.js 14', 'OpenAI API', 'RAG', 'Render', 'Vercel'],
     link: { url: 'https://koopilot.site', label: 'koopilot.site', type: 'site' },
@@ -87,21 +105,23 @@ window.PROJECTS = [
     images: ['assets/img/koopilot/1.webp', 'assets/img/koopilot/2.webp', 'assets/img/koopilot/3.webp', 'assets/img/koopilot/4.webp', 'assets/img/koopilot/5.webp'],
     captions: {
       en: ['Company dashboard', 'AI daily summary', 'Stock-out forecast', 'Multi-agent + RAG architecture', 'Demo storefront'],
-      tr: ['Şirket paneli', 'AI günlük özet', 'Stok tükenme tahmini', 'Multi-agent + RAG mimarisi', 'Demo mağaza']
+      tr: ['Şirket paneli', 'AI günlük özet', 'Stok tükenme tahmini', 'Multi-agent + RAG mimarisi', 'Demo mağaza'],
+      ru: ['Панель компании', 'Ежедневная ИИ-сводка', 'Прогноз исчерпания запасов', 'Архитектура Multi-agent + RAG', 'Демо-витрина']
     }
   },
   {
     id: 'trip',
     cats: ['ai', 'fullstack'],
-    title: { en: 'AI Trip Planner', tr: 'AI Trip Planner' },
-    badge: { en: 'Diploma project · UrFU', tr: 'Bitirme projesi · UrFU' },
-    tagline: { en: 'AI-powered smart route planner', tr: 'Yapay zeka destekli akıllı rota planlayıcı' },
-    period: { en: 'Nov 2025 — Jun 2026', tr: 'Kasım 2025 — Haziran 2026' },
-    role: { en: 'Fullstack Developer', tr: 'Fullstack Geliştirici' },
-    team: { en: 'Team of 2', tr: '2 kişilik takım' },
+    title: { en: 'AI Trip Planner', tr: 'AI Trip Planner', ru: 'AI Trip Planner' },
+    badge: { en: 'Diploma project · UrFU', tr: 'Bitirme projesi · UrFU', ru: 'Дипломный проект · УрФУ' },
+    tagline: { en: 'AI-powered smart route planner', tr: 'Yapay zeka destekli akıllı rota planlayıcı', ru: 'Умный планировщик маршрутов на основе ИИ' },
+    period: { en: 'Nov 2025 — Jun 2026', tr: 'Kasım 2025 — Haziran 2026', ru: 'Ноя 2025 — июн 2026' },
+    role: { en: 'Fullstack Developer', tr: 'Fullstack Geliştirici', ru: 'Fullstack-разработчик' },
+    team: { en: 'Team of 2', tr: '2 kişilik takım', ru: 'Команда из 2 человек' },
     summary: {
       en: 'Pick a destination and preferences, get a day-by-day route with times, costs and an interactive Mapbox map — every AI-generated place is verified before it reaches the user.',
-      tr: 'Destinasyonu ve tercihleri seçin; saatleri, maliyetleri ve interaktif Mapbox haritasıyla gün gün bir rota alın — yapay zekanın ürettiği her mekan kullanıcıya ulaşmadan doğrulanıyor.'
+      tr: 'Destinasyonu ve tercihleri seçin; saatleri, maliyetleri ve interaktif Mapbox haritasıyla gün gün bir rota alın — yapay zekanın ürettiği her mekan kullanıcıya ulaşmadan doğrulanıyor.',
+      ru: 'Выберите направление и предпочтения — получите маршрут по дням со временем, стоимостью и интерактивной картой Mapbox. Каждое сгенерированное ИИ место проверяется до того, как попадёт к пользователю.'
     },
     highlights: {
       en: [
@@ -115,6 +135,12 @@ window.PROJECTS = [
         'FastAPI ile BFF / API Gateway: LLM ve Mapbox çağrıları sunucu tarafına taşındı, API anahtarları istemciden gizlendi.',
         'Programatik doğrulama katmanı: modelin ürettiği lokasyonlar Mapbox Geocoding ile kontrol ediliyor, var olmayanlar eleniyor.',
         'Abonelik başlatma, yenileme ve iptali için Stripe entegrasyonu ve webhook işleme.'
+      ],
+      ru: [
+        'Интерфейс на React + TypeScript, интерактивная карта Mapbox GL и визуализация маршрута по дням.',
+        'BFF / API Gateway на FastAPI: вызовы LLM и Mapbox вынесены на сервер, API-ключи скрыты от клиента.',
+        'Программный слой валидации: локации, сгенерированные моделью, проверяются через Mapbox Geocoding, несуществующие отсеиваются.',
+        'Интеграция Stripe и обработка вебхуков: начало, продление и отмена подписки.'
       ]
     },
     stack: ['React', 'TypeScript', 'Vite', 'Zustand', 'React Query', 'Tailwind CSS', 'FastAPI', 'Mapbox', 'Gemini API', 'Stripe'],
@@ -123,21 +149,23 @@ window.PROJECTS = [
     images: ['assets/img/tripplanner/1.webp', 'assets/img/tripplanner/2.webp', 'assets/img/tripplanner/3.webp', 'assets/img/tripplanner/4.webp'],
     captions: {
       en: ['Home — trip wizard', 'Day-by-day route & map', 'Destinations', 'Subscription plans'],
-      tr: ['Ana sayfa — rota sihirbazı', 'Gün gün rota ve harita', 'Destinasyonlar', 'Abonelik planları']
+      tr: ['Ana sayfa — rota sihirbazı', 'Gün gün rota ve harita', 'Destinasyonlar', 'Abonelik planları'],
+      ru: ['Главная — мастер поездки', 'Маршрут по дням и карта', 'Направления', 'Тарифные планы']
     }
   },
   {
     id: 'finance',
     cats: ['ai'],
-    title: { en: 'AI Financial Assistant', tr: 'AI Financial Assistant' },
-    badge: { en: 'Google AI Academy Bootcamp', tr: 'Google AI Academy Bootcamp' },
-    tagline: { en: 'Spending analysis & recommendations with LangChain + Gemini', tr: 'LangChain + Gemini ile harcama analizi ve öneri sistemi' },
-    period: { en: 'Jun — Aug 2026', tr: 'Haziran — Ağustos 2026' },
-    role: { en: 'AI Developer', tr: 'AI Geliştirici' },
-    team: { en: 'Team of 4', tr: '4 kişilik takım' },
+    title: { en: 'AI Financial Assistant', tr: 'AI Financial Assistant', ru: 'AI Financial Assistant' },
+    badge: { en: 'Google AI Academy Bootcamp', tr: 'Google AI Academy Bootcamp', ru: 'Bootcamp Google AI Academy' },
+    tagline: { en: 'Spending analysis & recommendations with LangChain + Gemini', tr: 'LangChain + Gemini ile harcama analizi ve öneri sistemi', ru: 'Анализ расходов и рекомендации на LangChain + Gemini' },
+    period: { en: 'Jun — Aug 2026', tr: 'Haziran — Ağustos 2026', ru: 'Июн — авг 2026' },
+    role: { en: 'AI Developer', tr: 'AI Geliştirici', ru: 'AI-разработчик' },
+    team: { en: 'Team of 4', tr: '4 kişilik takım', ru: 'Команда из 4 человек' },
     summary: {
       en: 'Web app that analyses spending, flags anomalies, tracks budget limits and answers questions in natural language, combining the user\'s data with market data.',
-      tr: 'Harcamaları analiz eden, anomalileri işaretleyen, bütçe limitlerini takip eden ve kullanıcının verisini piyasa verileriyle birleştirerek doğal dilde soruları yanıtlayan web uygulaması.'
+      tr: 'Harcamaları analiz eden, anomalileri işaretleyen, bütçe limitlerini takip eden ve kullanıcının verisini piyasa verileriyle birleştirerek doğal dilde soruları yanıtlayan web uygulaması.',
+      ru: 'Веб-приложение, которое анализирует расходы, отмечает аномалии, следит за лимитами бюджета и отвечает на вопросы на естественном языке, объединяя данные пользователя с рыночными данными.'
     },
     highlights: {
       en: [
@@ -149,30 +177,37 @@ window.PROJECTS = [
         'AI ajanı ve hafıza katmanından sorumluydum: LangChain + Gemini API ile doğal dil sorgu işleme ve öneri zinciri.',
         'Conversation Buffer Memory ve gider anomalilerini piyasa verileriyle tek yanıtta birleştiren sistem promptu.',
         'Token yönetimi: modele tüm veri seti yerine filtrelenmiş ve özetlenmiş veri gönderiliyor — sorgu maliyeti ve bağlam kullanımı düşüyor.'
+      ],
+      ru: [
+        'Зона ответственности — AI-агент и слой памяти: обработка запросов на естественном языке и цепочка рекомендаций на LangChain + Gemini API.',
+        'Conversation Buffer Memory и системный промпт, который объединяет аномалии в расходах с рыночными данными в одном ответе.',
+        'Управление токенами: модель получает отфильтрованную и агрегированную сводку вместо всего набора данных — это снижает стоимость запросов и использование контекста.'
       ]
     },
-    note: { en: 'Screenshots use sample data.', tr: 'Ekran görüntülerinde örnek veri kullanılmıştır.' },
+    note: { en: 'Screenshots use sample data.', tr: 'Ekran görüntülerinde örnek veri kullanılmıştır.', ru: 'На скриншотах используются демонстрационные данные.' },
     stack: ['Python', 'LangChain', 'Gemini API', 'Prompt Engineering', 'AI Agents'],
     frame: 'smartfinance',
     images: ['assets/img/finance/1.webp', 'assets/img/finance/2.webp', 'assets/img/finance/3.webp', 'assets/img/finance/4.webp'],
     captions: {
       en: ['Overview', 'Smart recommendations', 'Budget & goals', 'Ask the assistant'],
-      tr: ['Genel bakış', 'Akıllı öneriler', 'Bütçe ve hedefler', 'Asistana sor']
+      tr: ['Genel bakış', 'Akıllı öneriler', 'Bütçe ve hedefler', 'Asistana sor'],
+      ru: ['Обзор', 'Умные рекомендации', 'Бюджет и цели', 'Спросить ассистента']
     }
   },
   {
     id: 'spec',
     cats: ['ai'],
     visual: 'pipeline',
-    title: { en: 'Spec Reviewer', tr: 'Teknik Şartname İnceleyici' },
-    badge: { en: 'AI Product Hack 2026 · MTS', tr: 'AI Product Hack 2026 · MTS' },
-    tagline: { en: 'AI tool for technical documentation analysis', tr: 'Teknik doküman analizi için AI aracı' },
-    period: { en: 'Sep 2026 · 1 week', tr: 'Eylül 2026 · 1 hafta' },
-    role: { en: 'AI Engineer', tr: 'AI Engineer' },
-    team: { en: 'Team of 2', tr: '2 kişilik takım' },
+    title: { en: 'Spec Reviewer', tr: 'Teknik Şartname İnceleyici', ru: 'Spec Reviewer (ТЗ-Ревьюер)' },
+    badge: { en: 'AI Product Hack 2026 · MTS', tr: 'AI Product Hack 2026 · MTS', ru: 'AI Product Hack 2026 · МТС' },
+    tagline: { en: 'AI tool for technical documentation analysis', tr: 'Teknik doküman analizi için AI aracı', ru: 'ИИ-инструмент для анализа технической документации' },
+    period: { en: 'Sep 2026 · 1 week', tr: 'Eylül 2026 · 1 hafta', ru: 'Сен 2026 · 1 неделя' },
+    role: { en: 'AI Engineer', tr: 'AI Engineer', ru: 'AI Engineer' },
+    team: { en: 'Team of 2', tr: '2 kişilik takım', ru: 'Команда из 2 человек' },
     summary: {
       en: 'Pre-analyzes technical specifications before development starts: finds ambiguous, incomplete and problematic points, explains why each matters and generates questions for the analyst. The decision stays with the human.',
-      tr: 'Geliştirme başlamadan önce teknik şartnameleri ön analizden geçiriyor: belirsiz, eksik ve sorunlu noktaları buluyor, neden sorun olduğunu açıklıyor ve analist için sorular oluşturuyor. Karar insanda kalıyor.'
+      tr: 'Geliştirme başlamadan önce teknik şartnameleri ön analizden geçiriyor: belirsiz, eksik ve sorunlu noktaları buluyor, neden sorun olduğunu açıklıyor ve analist için sorular oluşturuyor. Karar insanda kalıyor.',
+      ru: 'Предварительно анализирует технические задания до начала разработки: находит неоднозначные, неполные и проблемные места, объясняет, почему каждое из них важно, и формирует вопросы для аналитика. Решение остаётся за человеком.'
     },
     highlights: {
       en: [
@@ -188,16 +223,24 @@ window.PROJECTS = [
         'Şablonun 21 bölümü ve müşterinin 8 ek gereksinimi için kontroller; LLM tarafında 23 kategori semantik analiz.',
         'Sağlayıcıdan bağımsız LLM istemcisi: model erişilemez olduğunda şablon kontrolleri ve deterministik kurallar offline çalışmaya devam ediyor.',
         '3 anonimleştirilmiş gerçek doküman üzerinde offline ve LLM modlarında ~73 otomatik testle doğrulandı; tekrar eden uyarılar ve yanlış pozitifler giderildi.'
+      ],
+      ru: [
+        'Зона ответственности — архитектура, парсинг документов, проверки по шаблону, независимый от провайдера LLM-клиент и интеграция системы.',
+        'Пайплайн: загрузка текста/DOCX → парсинг с сохранением заголовков, разделов, таблиц и ссылок → детерминированные проверки по шаблону → семантический анализ через LLM → структурированный отчёт в Markdown.',
+        'Проверки по 21 разделу шаблона и 8 дополнительным требованиям заказчика; на стороне LLM — 23 категории семантического анализа.',
+        'LLM-клиент, независимый от провайдера: если модель недоступна, проверки по шаблону и детерминированные правила продолжают работать офлайн.',
+        'Протестировано на 3 обезличенных реальных документах в офлайн- и LLM-режимах, ~73 автоматических теста; найдены и устранены дублирующиеся предупреждения и ложные срабатывания.'
       ]
     },
     note: {
       en: 'No screenshots — the case documents belong to the client.',
-      tr: 'Vaka dokümanları müşteriye ait olduğu için ekran görüntüsü paylaşılmamıştır.'
+      tr: 'Vaka dokümanları müşteriye ait olduğu için ekran görüntüsü paylaşılmamıştır.',
+      ru: 'Скриншотов нет — документы кейса принадлежат заказчику.'
     },
     metrics: [
-      { v: '21', l: { en: 'template sections', tr: 'şablon bölümü' } },
-      { v: '23', l: { en: 'semantic categories', tr: 'semantik kategori' } },
-      { v: '~73', l: { en: 'automated tests', tr: 'otomatik test' } }
+      { v: '21', l: { en: 'template sections', tr: 'şablon bölümü', ru: 'разделов шаблона' } },
+      { v: '23', l: { en: 'semantic categories', tr: 'semantik kategori', ru: 'семантических категорий' } },
+      { v: '~73', l: { en: 'automated tests', tr: 'otomatik test', ru: 'автотестов' } }
     ],
     stack: ['Python', 'Streamlit', 'DOCX parsing', 'LLM API', 'Gemini 2.5 Flash']
   },
@@ -206,15 +249,16 @@ window.PROJECTS = [
     cats: ['frontend'],
     visual: 'phone',
     wide: true,
-    title: { en: 'Budget Manager', tr: 'Budget Manager' },
-    badge: { en: 'VK internship', tr: 'VK stajı' },
-    tagline: { en: 'Expense-tracking mini app for VK Mini Apps', tr: 'VK Mini Apps için gider takip uygulaması' },
-    period: { en: 'Jun — Sep 2025', tr: 'Haziran — Eylül 2025' },
-    role: { en: 'Frontend Developer Intern', tr: 'Frontend Geliştirici Stajyeri' },
-    context: { en: 'VK · Moscow, on-site', tr: 'VK · Moskova, ofiste' },
+    title: { en: 'Budget Manager', tr: 'Budget Manager', ru: 'Budget Manager' },
+    badge: { en: 'VK internship', tr: 'VK stajı', ru: 'Стажировка в VK' },
+    tagline: { en: 'Expense-tracking mini app for VK Mini Apps', tr: 'VK Mini Apps için gider takip uygulaması', ru: 'Мини-приложение для учёта расходов в VK Mini Apps' },
+    period: { en: 'Jun — Sep 2025', tr: 'Haziran — Eylül 2025', ru: 'Июн — сен 2025' },
+    role: { en: 'Frontend Developer Intern', tr: 'Frontend Geliştirici Stajyeri', ru: 'Стажёр-frontend-разработчик' },
+    context: { en: 'VK · Moscow, on-site', tr: 'VK · Moskova, ofiste', ru: 'VK · Москва, офис' },
     summary: {
       en: 'Built from scratch inside the VK Mini Apps ecosystem: expense tracking with category analytics and interactive charts, following iOS and Android guidelines.',
-      tr: 'VK Mini Apps ekosisteminde sıfırdan geliştirildi: kategori bazlı analiz ve interaktif grafiklerle gider takibi, iOS ve Android tasarım kurallarına uygun.'
+      tr: 'VK Mini Apps ekosisteminde sıfırdan geliştirildi: kategori bazlı analiz ve interaktif grafiklerle gider takibi, iOS ve Android tasarım kurallarına uygun.',
+      ru: 'Разработано с нуля в экосистеме VK Mini Apps: учёт расходов с аналитикой по категориям и интерактивными графиками, в соответствии с гайдлайнами iOS и Android.'
     },
     highlights: {
       en: [
@@ -226,6 +270,11 @@ window.PROJECTS = [
         'VK Bridge SDK entegrasyonu: platform navigasyonu, açık/koyu tema, VK Mini Apps Router ile yönlendirme.',
         'iOS ve Android kurallarına uygun VKUI arayüzü; kategoriye göre gider analizi ve interaktif grafikler.',
         'Mentorumun kod incelemelerine göre uygulamayı geliştirdim; ESLint ile kod standartlarını korudum.'
+      ],
+      ru: [
+        'Интеграция VK Bridge SDK: навигация платформы, светлая/тёмная тема, маршрутизация через VK Mini Apps Router.',
+        'Интерфейс на VKUI по гайдлайнам iOS и Android; аналитика расходов по категориям с интерактивными графиками.',
+        'Доработка приложения по замечаниям код-ревью ментора; контроль стандартов кода с помощью ESLint.'
       ]
     },
     stack: ['React', 'JavaScript ES6+', 'Vite', 'VKUI', 'VK Bridge SDK'],
@@ -236,38 +285,42 @@ window.PROJECTS = [
 window.OTHERS = [
   {
     title: 'SelfShare',
-    kind: { en: 'Mobile app', tr: 'Mobil uygulama' },
+    kind: { en: 'Mobile app', tr: 'Mobil uygulama', ru: 'Мобильное приложение' },
     desc: {
       en: 'Book-exchange app: MVVM, custom identity logic and a state machine managing exchange requests.',
-      tr: 'Kitap takas uygulaması: MVVM, kendi kimlik doğrulama mantığı ve takas taleplerini yöneten durum makinesi.'
+      tr: 'Kitap takas uygulaması: MVVM, kendi kimlik doğrulama mantığı ve takas taleplerini yöneten durum makinesi.',
+      ru: 'Приложение для обмена книгами: MVVM, собственная логика идентификации и конечный автомат (state machine) для управления запросами на обмен.'
     },
     stack: ['.NET MAUI', 'C#', 'EF Core', 'SQLite']
   },
   {
     title: 'AI Professional Photo Studio',
-    kind: { en: 'AI app', tr: 'AI uygulaması' },
+    kind: { en: 'AI app', tr: 'AI uygulaması', ru: 'ИИ-приложение' },
     desc: {
       en: 'Professional portrait generation with Flux-Kontext, with JWT authentication.',
-      tr: 'Flux-Kontext ile profesyonel portre üretimi, JWT kimlik doğrulama.'
+      tr: 'Flux-Kontext ile profesyonel portre üretimi, JWT kimlik doğrulama.',
+      ru: 'Генерация профессиональных портретов на Flux-Kontext, аутентификация через JWT.'
     },
     stack: ['React', 'Flask', 'Flux-Kontext', 'JWT']
   },
   {
     title: 'Seyid Mermer',
-    kind: { en: 'Client website · 2026', tr: 'Müşteri sitesi · 2026' },
+    kind: { en: 'Client website · 2026', tr: 'Müşteri sitesi · 2026', ru: 'Клиентский сайт · 2026' },
     desc: {
       en: 'Marketing site for a marble-working company, built from scratch.',
-      tr: 'Mermer işleme firması için sıfırdan kodlanmış kurumsal tanıtım sitesi.'
+      tr: 'Mermer işleme firması için sıfırdan kodlanmış kurumsal tanıtım sitesi.',
+      ru: 'Корпоративный сайт для компании по обработке мрамора, разработан с нуля.'
     },
     stack: ['Web', 'Freelance'],
     link: 'https://kovancilarseyidmermer.com'
   },
   {
     title: 'HRN Fabric',
-    kind: { en: 'Client e-commerce · 2024', tr: 'Müşteri e-ticaret · 2024' },
+    kind: { en: 'Client e-commerce · 2024', tr: 'Müşteri e-ticaret · 2024', ru: 'Интернет-магазин · 2024' },
     desc: {
       en: 'WooCommerce online store for a Turkish fabric wholesaler: setup and customization.',
-      tr: 'Türkiye\'den kumaş ithal eden bir toptancı için WooCommerce mağaza kurulumu ve özelleştirmesi.'
+      tr: 'Türkiye\'den kumaş ithal eden bir toptancı için WooCommerce mağaza kurulumu ve özelleştirmesi.',
+      ru: 'Интернет-магазин на WooCommerce для оптовика тканей из Турции: настройка и кастомизация.'
     },
     stack: ['WooCommerce', 'Freelance'],
     link: 'https://hrnfabric.ru'
@@ -278,9 +331,9 @@ window.TIMELINE = {
   work: [
     {
       org: 'FK POS',
-      title: { en: 'Fullstack Developer · own commercial product', tr: 'Fullstack Geliştirici · kendi ticari ürünüm' },
-      date: { en: 'June 2026 — present', tr: 'Haziran 2026 — halen' },
-      place: { en: 'Turkish market · remote', tr: 'Türkiye pazarı · uzaktan' },
+      title: { en: 'Fullstack Developer · own commercial product', tr: 'Fullstack Geliştirici · kendi ticari ürünüm', ru: 'Fullstack-разработчик · собственный коммерческий продукт' },
+      date: { en: 'June 2026 — present', tr: 'Haziran 2026 — halen', ru: 'Июнь 2026 — н. в.' },
+      place: { en: 'Turkish market · remote', tr: 'Türkiye pazarı · uzaktan', ru: 'Рынок Турции · удалённо' },
       current: true,
       link: 'https://fkposyazilim.com',
       bullets: {
@@ -293,15 +346,20 @@ window.TIMELINE = {
           'Küçük işletmeler için offline çalışabilen kasa yazılımı: 8 sektörel versiyon, 5 aktif işletmede kullanımda.',
           'Supabase bulut senkronu, Tauri üzerinden Rust ile donanım entegrasyonları, şifreli tek dosyalık yedekleme.',
           'Ürünün tamamından sorumluyum: mimari, geliştirme, müşteride kurulum ve destek.'
+        ],
+        ru: [
+          'Кассовое ПО с offline-режимом для малого бизнеса: 8 отраслевых версий, используется в 5 действующих предприятиях.',
+          'Облачная синхронизация на Supabase, интеграции с оборудованием на Rust через Tauri, зашифрованные резервные копии в одном файле.',
+          'Отвечаю за продукт целиком: архитектура, разработка, установка у клиента и поддержка.'
         ]
       },
       stack: ['React', 'TypeScript', 'Tauri', 'Rust', 'Supabase']
     },
     {
       org: 'VK (VKontakte)',
-      title: { en: 'Frontend Developer Intern', tr: 'Frontend Geliştirici Stajyeri' },
-      date: { en: 'June 2025 — September 2025', tr: 'Haziran 2025 — Eylül 2025' },
-      place: { en: 'Moscow · on-site', tr: 'Moskova · ofiste' },
+      title: { en: 'Frontend Developer Intern', tr: 'Frontend Geliştirici Stajyeri', ru: 'Стажёр-frontend-разработчик' },
+      date: { en: 'June 2025 — September 2025', tr: 'Haziran 2025 — Eylül 2025', ru: 'Июнь 2025 — сентябрь 2025' },
+      place: { en: 'Moscow · on-site', tr: 'Moskova · ofiste', ru: 'Москва · офис' },
       link: 'https://vk-miniapp-plum.vercel.app',
       bullets: {
         en: [
@@ -313,15 +371,20 @@ window.TIMELINE = {
           'VK Mini Apps ekosisteminde gider takibi için Budget Manager mini uygulamasını sıfırdan geliştirdim.',
           'VK Bridge SDK: platform navigasyonu, açık/koyu tema, VK Mini Apps Router ile yönlendirme.',
           'iOS ve Android kurallarına uygun VKUI arayüzü ve interaktif kategori grafikleri.'
+        ],
+        ru: [
+          'Мини-приложение Budget Manager для учёта расходов в экосистеме VK Mini Apps — разработка с нуля.',
+          'VK Bridge SDK: навигация платформы, светлая/тёмная тема, маршрутизация через VK Mini Apps Router.',
+          'Интерфейс на VKUI по гайдлайнам iOS и Android с интерактивными графиками по категориям.'
         ]
       },
       stack: ['React', 'Vite', 'VKUI', 'VK Bridge SDK']
     },
     {
-      org: 'Freelance',
-      title: { en: 'Client websites', tr: 'Müşteri siteleri' },
-      date: { en: '2024 — 2026', tr: '2024 — 2026' },
-      place: { en: 'Remote', tr: 'Uzaktan' },
+      org: { en: 'Freelance', tr: 'Freelance', ru: 'Фриланс' },
+      title: { en: 'Client websites', tr: 'Müşteri siteleri', ru: 'Клиентские сайты' },
+      date: { en: '2024 — 2026', tr: '2024 — 2026', ru: '2024 — 2026' },
+      place: { en: 'Remote', tr: 'Uzaktan', ru: 'Удалённо' },
       bullets: {
         en: [
           '<a href="https://kovancilarseyidmermer.com" target="_blank" rel="noopener">Seyid Mermer</a> — marketing site for a marble-working company, built from scratch (2026).',
@@ -330,27 +393,32 @@ window.TIMELINE = {
         tr: [
           '<a href="https://kovancilarseyidmermer.com" target="_blank" rel="noopener">Seyid Mermer</a> — mermer işleme firması için sıfırdan kurumsal tanıtım sitesi (2026).',
           '<a href="https://hrnfabric.ru" target="_blank" rel="noopener">HRN Fabric</a> — kumaş toptancısı için WooCommerce e-ticaret mağazası (2024).'
+        ],
+        ru: [
+          '<a href="https://kovancilarseyidmermer.com" target="_blank" rel="noopener">Seyid Mermer</a> — корпоративный сайт для компании по обработке мрамора, разработан с нуля (2026).',
+          '<a href="https://hrnfabric.ru" target="_blank" rel="noopener">HRN Fabric</a> — магазин на WooCommerce для оптовика тканей из Турции (2024).'
         ]
       }
     }
   ],
   edu: [
     {
-      org: { en: 'ITMO University', tr: 'ITMO Üniversitesi' },
-      title: { en: "Master's · Artificial Intelligence (AI Talent Hub)", tr: 'Yüksek Lisans · Yapay Zeka (AI Talent Hub)' },
-      date: { en: 'September 2026 — present', tr: 'Eylül 2026 — halen' },
-      place: { en: 'Saint Petersburg · full scholarship', tr: 'Saint Petersburg · tam burs' },
+      org: { en: 'ITMO University', tr: 'ITMO Üniversitesi', ru: 'Университет ИТМО' },
+      title: { en: "Master's · Artificial Intelligence (AI Talent Hub)", tr: 'Yüksek Lisans · Yapay Zeka (AI Talent Hub)', ru: 'Магистратура · Искусственный интеллект (AI Talent Hub)' },
+      date: { en: 'September 2026 — present', tr: 'Eylül 2026 — halen', ru: 'Сентябрь 2026 — н. в.' },
+      place: { en: 'Saint Petersburg · full scholarship', tr: 'Saint Petersburg · tam burs', ru: 'Санкт-Петербург · полная стипендия' },
       current: true,
       bullets: {
         en: ['QS World University Rankings by Subject: #51–70 worldwide in Data Science & AI.'],
-        tr: ['QS World University Rankings by Subject: Data Science & AI alanında dünyada ilk 51–70.']
+        tr: ['QS World University Rankings by Subject: Data Science & AI alanında dünyada ilk 51–70.'],
+        ru: ['QS World University Rankings by Subject: 51–70 места в мире по Data Science & AI.']
       }
     },
     {
       org: 'Google AI & Technology Academy',
-      title: { en: 'Program participant', tr: 'Program katılımcısı' },
-      date: { en: 'December 2025 — September 2026', tr: 'Aralık 2025 — Eylül 2026' },
-      place: { en: 'Google Türkiye · T3 Foundation', tr: 'Google Türkiye · T3 Vakfı' },
+      title: { en: 'Program participant', tr: 'Program katılımcısı', ru: 'Участник программы' },
+      date: { en: 'December 2025 — September 2026', tr: 'Aralık 2025 — Eylül 2026', ru: 'Декабрь 2025 — сентябрь 2026' },
+      place: { en: 'Google Türkiye · T3 Foundation', tr: 'Google Türkiye · T3 Vakfı', ru: 'Google Türkiye · Фонд T3' },
       bullets: {
         en: [
           'Selected as one of 1,500 out of 31,700+ applications from Turkey.',
@@ -359,17 +427,22 @@ window.TIMELINE = {
         tr: [
           'Türkiye\'den 31.700\'den fazla başvuru arasından seçilen 1.500 kişiden biri.',
           'Backend geliştirme, API mimarisi ve AI ajanları; Koopilot hackathonu ve AI Financial Assistant bootcamp\'i.'
+        ],
+        ru: [
+          'В числе 1 500 отобранных участников из более чем 31 700 заявок из Турции.',
+          'Backend-разработка, архитектура API и ИИ-агенты; хакатон Koopilot и bootcamp AI Financial Assistant.'
         ]
       }
     },
     {
-      org: { en: 'Ural Federal University (UrFU)', tr: 'Ural Federal Üniversitesi (UrFU)' },
-      title: { en: "Bachelor's · Software Engineering", tr: 'Lisans · Yazılım Mühendisliği' },
-      date: { en: 'Class of 2026', tr: 'Mezuniyet 2026' },
-      place: { en: 'Yekaterinburg · full scholarship', tr: 'Yekaterinburg · tam burs' },
+      org: { en: 'Ural Federal University (UrFU)', tr: 'Ural Federal Üniversitesi (UrFU)', ru: 'Уральский федеральный университет (УрФУ)' },
+      title: { en: "Bachelor's · Software Engineering", tr: 'Lisans · Yazılım Mühendisliği', ru: 'Бакалавриат · Программная инженерия' },
+      date: { en: 'Class of 2026', tr: 'Mezuniyet 2026', ru: 'Выпуск 2026' },
+      place: { en: 'Yekaterinburg · full scholarship', tr: 'Yekaterinburg · tam burs', ru: 'Екатеринбург · полная стипендия' },
       bullets: {
         en: ['Diploma project: AI Trip Planner — AI-powered smart route planner.'],
-        tr: ['Bitirme projesi: AI Trip Planner — yapay zeka destekli akıllı rota planlayıcı.']
+        tr: ['Bitirme projesi: AI Trip Planner — yapay zeka destekli akıllı rota planlayıcı.'],
+        ru: ['Дипломный проект: AI Trip Planner — умный планировщик маршрутов на основе ИИ.']
       }
     }
   ]

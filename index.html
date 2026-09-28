@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 
   <script>
@@ -29,8 +29,11 @@
         var t = localStorage.getItem('fk-theme');
         if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
         var l = localStorage.getItem('fk-lang');
-        if (!l) l = (navigator.language || '').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
-        d.setAttribute('lang', l === 'tr' ? 'tr' : 'en');
+        if (l !== 'tr' && l !== 'ru' && l !== 'en') {
+          var n = (navigator.language || '').toLowerCase();
+          l = n.indexOf('tr') === 0 ? 'tr' : n.indexOf('ru') === 0 ? 'ru' : 'en';
+        }
+        d.setAttribute('lang', l);
       } catch (e) {}
     })();
   </script>
@@ -114,6 +117,7 @@
         <div class="lang-switch" role="group" aria-label="Language">
           <button type="button" data-lang="en" aria-pressed="true">EN</button>
           <button type="button" data-lang="tr" aria-pressed="false">TR</button>
+          <button type="button" data-lang="ru" aria-pressed="false">RU</button>
           <span class="lang-thumb" aria-hidden="true"></span>
         </div>
         <button type="button" class="icon-btn theme-toggle" data-i18n-aria="a11y.theme" aria-label="Toggle theme">

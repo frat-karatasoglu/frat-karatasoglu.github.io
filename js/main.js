@@ -12,7 +12,9 @@
     set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
   };
 
-  let lang = root.getAttribute('lang') === 'tr' ? 'tr' : 'en';
+  const LANGS = ['en', 'tr', 'ru'];
+  const LOCALES = { en: 'en-US', tr: 'tr-TR', ru: 'ru-RU' };
+  let lang = LANGS.includes(root.getAttribute('lang')) ? root.getAttribute('lang') : 'en';
   const t = (k) => {
     const dict = window.I18N[lang] || {};
     return k in dict ? dict[k] : (window.I18N.en[k] ?? '');
@@ -21,7 +23,9 @@
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const stripTags = (s) => String(s).replace(/<[^>]*>/g, '').replace(/&amp;/g, '&');
   const icon = (name, cls = '') => `<svg class="icon ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
-  const fmt = (n) => new Intl.NumberFormat(lang === 'tr' ? 'tr-TR' : 'en-US').format(n);
+  const fmt = (n) => new Intl.NumberFormat(LOCALES[lang]).format(n);
+  const pick = (o) => o[lang] ?? o.en;
+  const metricValue = (m) => m['v' + lang] || m.v;
 
   /* ---------------------------------------------------------
      Reveal on scroll
@@ -83,14 +87,13 @@
   }
 
   function pipelineViz() {
-    const tr = lang === 'tr';
     const nodes = [
-      { x: 20, y: 40, t: tr ? 'DOCX / Metin' : 'DOCX / Text', s: tr ? 'yükleme' : 'upload' },
-      { x: 245, y: 40, t: tr ? 'Ayrıştırıcı' : 'Parser', s: tr ? 'başlık · tablo · link' : 'headings · tables · links' },
-      { x: 470, y: 40, t: tr ? 'Şablon kontrolü' : 'Template checks', s: tr ? '21 bölüm + 8 kural' : '21 sections + 8 rules', c: 'hot' },
-      { x: 470, y: 200, t: tr ? 'LLM analizi' : 'LLM analysis', s: tr ? '23 kategori' : '23 categories', c: 'llm' },
-      { x: 245, y: 200, t: 'Report.md', s: tr ? 'analist için sorular' : 'questions for analyst' },
-      { x: 20, y: 200, t: tr ? 'Analist' : 'Analyst', s: tr ? 'karar insanda' : 'human decides' }
+      { x: 20, y: 40, t: pick({ en: 'DOCX / Text', tr: 'DOCX / Metin', ru: 'DOCX / Текст' }), s: pick({ en: 'upload', tr: 'yükleme', ru: 'загрузка' }) },
+      { x: 245, y: 40, t: pick({ en: 'Parser', tr: 'Ayrıştırıcı', ru: 'Парсер' }), s: pick({ en: 'headings · tables · links', tr: 'başlık · tablo · link', ru: 'заголовки · таблицы · ссылки' }) },
+      { x: 470, y: 40, t: pick({ en: 'Template checks', tr: 'Şablon kontrolü', ru: 'Проверки шаблона' }), s: pick({ en: '21 sections + 8 rules', tr: '21 bölüm + 8 kural', ru: '21 раздел + 8 правил' }), c: 'hot' },
+      { x: 470, y: 200, t: pick({ en: 'LLM analysis', tr: 'LLM analizi', ru: 'Анализ LLM' }), s: pick({ en: '23 categories', tr: '23 kategori', ru: '23 категории' }), c: 'llm' },
+      { x: 245, y: 200, t: 'Report.md', s: pick({ en: 'questions for analyst', tr: 'analist için sorular', ru: 'вопросы аналитику' }) },
+      { x: 20, y: 200, t: pick({ en: 'Analyst', tr: 'Analist', ru: 'Аналитик' }), s: pick({ en: 'human decides', tr: 'karar insanda', ru: 'решает человек' }) }
     ];
     const track = 'M95 68 H545 V228 H95';
     return `
@@ -115,7 +118,6 @@
   }
 
   function phoneViz() {
-    const tr = lang === 'tr';
     const bars = [42, 68, 35, 80, 55, 92, 60];
     return `
       <div class="viz"><div class="viz-grid"></div>
@@ -125,8 +127,8 @@
           <div class="phone-sum">24 580 ₽</div>
           <div class="donut"></div>
           <div class="bars">${bars.map((h, i) => `<span style="--h:${h}%;--i:${i}"></span>`).join('')}</div>
-          <div class="phone-row"><span><i></i>${tr ? 'Market' : 'Groceries'}</span><span>8 400 ₽</span></div>
-          <div class="phone-row"><span><i style="background:var(--a1)"></i>${tr ? 'Ulaşım' : 'Transport'}</span><span>5 200 ₽</span></div>
+          <div class="phone-row"><span><i></i>${pick({ en: 'Groceries', tr: 'Market', ru: 'Продукты' })}</span><span>8 400 ₽</span></div>
+          <div class="phone-row"><span><i style="background:var(--a1)"></i>${pick({ en: 'Transport', tr: 'Ulaşım', ru: 'Транспорт' })}</span><span>5 200 ₽</span></div>
         </div>
       </div>`;
   }
@@ -146,7 +148,7 @@
   }
 
   const metricsHTML = (p) => (p.metrics ? `<div class="pcard-metrics">${p.metrics.map((m) => `
-      <div class="metric"><b>${esc(lang === 'tr' && m.vtr ? m.vtr : m.v)}</b><span>${esc(L(m.l))}</span></div>`).join('')}</div>` : '');
+      <div class="metric"><b>${esc(metricValue(m))}</b><span>${esc(L(m.l))}</span></div>`).join('')}</div>` : '');
 
   function renderProjects(instant) {
     const grid = $('#projects-grid');
@@ -272,7 +274,7 @@
           </div>
           <div>
             <dl class="meta-list">${meta.map(([k, v]) => `<div class="meta-row"><dt>${esc(t(k))}</dt><dd>${esc(L(v))}</dd></div>`).join('')}</dl>
-            ${p.metrics ? `<section class="modal-section"><div class="modal-metrics">${p.metrics.map((m) => `<div class="metric"><b>${esc(lang === 'tr' && m.vtr ? m.vtr : m.v)}</b><span>${esc(L(m.l))}</span></div>`).join('')}</div></section>` : ''}
+            ${p.metrics ? `<section class="modal-section"><div class="modal-metrics">${p.metrics.map((m) => `<div class="metric"><b>${esc(metricValue(m))}</b><span>${esc(L(m.l))}</span></div>`).join('')}</div></section>` : ''}
             <section class="modal-section">
               <h3>${esc(t('proj.stack'))}</h3>
               <div class="chips">${p.stack.map((s) => `<span class="chip chip-hot">${esc(s)}</span>`).join('')}</div>
