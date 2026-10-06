@@ -25,4 +25,4 @@ assets/img/         Optimize edilmiş (WebP) proje görselleri
 
 ## Yayınlama
 
-Site GitHub Pages üzerinde yayında: https://frat-karatasoglu.github.io/ — `main` dalına her push sonrası otomatik güncellenir.
+Site GitHub Pages üzerinde yayında: https://firatkaratasoglu.is-a.dev/ (eski frat-karatasoglu.github.io adresi buraya yönlenir) — `main` dalına her push sonrası otomatik güncellenir.
