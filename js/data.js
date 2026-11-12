@@ -66,9 +66,9 @@ window.PROJECTS = [
     ],
     stack: ['LLM tool calling', 'Groq', 'Whisper', 'Vision AI', 'React', 'TypeScript', 'Tauri', 'Rust', 'Supabase', 'Edge Functions', 'PostgreSQL', 'Windows'],
     note: {
-      en: 'Screenshots use fictional demo data.',
-      tr: 'Ekran görüntülerinde uydurma demo verisi kullanılmıştır.',
-      ru: 'На скриншотах — вымышленные демонстрационные данные.'
+      en: 'Screenshots use fictional demo data; the people in the photo-receipt images are AI-generated.',
+      tr: 'Ekran görüntülerinde uydurma demo verisi kullanılmıştır; fotoğraflı fiş görsellerindeki kişiler yapay zekâ ile üretilmiştir.',
+      ru: 'На скриншотах — вымышленные демонстрационные данные; люди на снимках фото-чека созданы ИИ.'
     },
     link: { url: 'https://fkposyazilim.com', label: 'fkposyazilim.com', type: 'site' },
     frame: 'fkposyazilim.com',
@@ -79,7 +79,8 @@ window.PROJECTS = [
       'assets/img/fkpos/goods-receipt.webp',
       'assets/img/fkpos/phone-assistant.webp',
       'assets/img/fkpos/phone-panel.webp',
-      'assets/img/fkpos/photo-receipt.webp'
+      'assets/img/fkpos/photo-receipt.webp',
+      'assets/img/fkpos/photo-receipt-steps.webp'
     ],
     captions: {
       en: [
@@ -89,7 +90,8 @@ window.PROJECTS = [
         'Goods receipt from an invoice photo — nothing changes until you approve',
         'Phone assistant: questions, sales suggestions and goods receipt',
         'Remote owner panel: today, history and dark mode',
-        'Photo receipt: QR on the receipt → photo on the phone → printed on the receipt'
+        'Photo receipt: QR on the receipt → customer photo on the phone → printed in black and white',
+        'Photo receipt on the phone: choose a photo, press print, done'
       ],
       tr: [
         'FK Asistan kasada ve telefonda',
@@ -98,7 +100,8 @@ window.PROJECTS = [
         'Fatura fotoğrafından mal kabul — siz onaylamadan hiçbir şey değişmez',
         'Telefonda asistan: sorular, satış önerileri ve mal kabul',
         'Uzaktan işletme sahibi paneli: bugün, geçmiş ve karanlık mod',
-        'Fotoğraflı fiş: fişteki QR → telefonda fotoğraf → fişe basılır'
+        'Fotoğraflı fiş: fişteki QR → müşterinin telefonundaki fotoğraf → siyah-beyaz fişe basılır',
+        'Telefonda fotoğraflı fiş: fotoğrafı seç, bas, tamam'
       ],
       ru: [
         'FK Asistan на кассе и на телефоне',
@@ -107,7 +110,8 @@ window.PROJECTS = [
         'Приёмка товара по фото накладной — ничего не меняется без вашего подтверждения',
         'Ассистент на телефоне: вопросы, рекомендации по продажам и приёмка товара',
         'Удалённая панель владельца: сегодня, история и тёмная тема',
-        'Фото на чеке: QR на чеке → снимок на телефоне → печать на чеке'
+        'Фото на чеке: QR на чеке → фото клиента на телефоне → чёрно-белая печать на чеке',
+        'Фото-чек на телефоне: выбрать снимок, нажать печать, готово'
       ]
     }
   },
