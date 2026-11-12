@@ -133,6 +133,8 @@
       </div>`;
   }
 
+  const aiPill = (p) => (p.aiTag ? `<span class="ai-pill">${icon('sparkles')}${esc(L(p.aiTag))}</span>` : '');
+
   const vizFor = (p) => (p.visual === 'pipeline' ? pipelineViz() : p.visual === 'phone' ? phoneViz() : '');
 
   function projectMedia(p) {
@@ -160,7 +162,7 @@
       <article class="pcard spotlight${p.featured ? ' featured' : ''}${p.wide ? ' wide' : ''}${hidden ? ' is-hidden' : ''}" data-id="${p.id}" data-cats="${p.cats.join(' ')}" data-reveal style="--d:${i % 2}">
         <div class="pcard-media">${projectMedia(p)}</div>
         <div class="pcard-body">
-          <div class="pcard-top"><span class="badge">${esc(L(p.badge))}</span><span class="pcard-period">${esc(L(p.period))}</span></div>
+          <div class="pcard-top"><span class="pcard-tags"><span class="badge">${esc(L(p.badge))}</span>${aiPill(p)}</span><span class="pcard-period">${esc(L(p.period))}</span></div>
           <h3 class="pcard-title">${esc(L(p.title))}</h3>
           <p class="pcard-tagline">${esc(L(p.tagline))}</p>
           <p class="pcard-summary">${esc(L(p.summary))}</p>
@@ -254,7 +256,7 @@
       <div class="modal-body">
         <div class="modal-head">
           <div>
-            <span class="badge">${esc(L(p.badge))}</span>
+            <span class="pcard-tags"><span class="badge">${esc(L(p.badge))}</span>${aiPill(p)}</span>
             <h2 id="modal-title">${esc(L(p.title))}</h2>
             <p>${esc(L(p.tagline))}</p>
           </div>

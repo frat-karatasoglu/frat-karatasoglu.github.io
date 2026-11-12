@@ -3,61 +3,112 @@
 window.PROJECTS = [
   {
     id: 'fkpos',
-    cats: ['fullstack'],
+    cats: ['ai', 'fullstack'],
     featured: true,
     title: { en: 'FK POS', tr: 'FK POS', ru: 'FK POS' },
     badge: { en: 'Commercial product', tr: 'Ticari ürün', ru: 'Коммерческий продукт' },
-    tagline: { en: 'Offline-first point-of-sale software', tr: 'Offline-first kasa (POS) yazılımı', ru: 'Кассовое ПО (POS) с offline-first архитектурой' },
+    aiTag: { en: 'AI assistant', tr: 'AI asistan', ru: 'ИИ-ассистент' },
+    tagline: {
+      en: 'Offline-first point-of-sale software with an AI assistant',
+      tr: 'Yapay zeka asistanlı offline-first kasa (POS) yazılımı',
+      ru: 'Offline-first кассовое ПО (POS) с ИИ-ассистентом'
+    },
     period: { en: 'June 2026 — present', tr: 'Haziran 2026 — halen', ru: 'Июнь 2026 — н. в.' },
     role: { en: 'Founder & Fullstack Developer', tr: 'Kurucu & Fullstack Geliştirici', ru: 'Основатель и Fullstack-разработчик' },
     context: { en: 'Turkish market · remote', tr: 'Türkiye pazarı · uzaktan', ru: 'Рынок Турции · удалённо' },
     summary: {
-      en: 'Commercial point-of-sale software I build and sell to small businesses in Turkey. The register keeps working without internet and syncs to a Supabase cloud module, so the owner can check the till remotely.',
-      tr: 'Türkiye\'deki küçük işletmelere geliştirip sattığım ticari kasa yazılımı. Kasa internet olmadan çalışmaya devam ediyor ve Supabase bulut modülüyle senkronize oluyor; işletme sahibi kasayı uzaktan görebiliyor.',
-      ru: 'Коммерческое кассовое ПО, которое я разрабатываю и продаю малому бизнесу в Турции. Касса продолжает работать без интернета и синхронизируется с облачным модулем на Supabase, поэтому владелец может проверять кассу удалённо.'
+      en: 'Commercial POS software I build and sell to small businesses in Turkey. Works offline; its built-in AI assistant answers business questions, proposes changes for approval and reads supplier invoices from photos.',
+      tr: 'Türkiye\'deki küçük işletmelere geliştirip sattığım ticari kasa yazılımı. İnternetsiz çalışır; yerleşik AI asistanı işletme sorularını yanıtlar, değişiklikleri onaya sunar ve fatura fotoğraflarını okur.',
+      ru: 'Коммерческое кассовое ПО для малого бизнеса в Турции, которое я разрабатываю и продаю. Работает без интернета; ИИ-ассистент отвечает на вопросы о бизнесе, предлагает изменения на подтверждение и читает накладные.'
     },
     highlights: {
       en: [
-        'Offline-first architecture: sales and register operations keep working without an internet connection.',
-        'Supabase cloud module: the till state syncs automatically when connectivity returns and every 2 minutes.',
-        'Barcode scanner, electronic scale, thermal receipt printer and customer display integrated in Rust via Tauri commands.',
-        'Designed an encrypted, single-file <code>.POS</code> backup format.',
-        'Sales, inventory, accounts, invoicing, bulk price-update and reporting modules.',
-        'Processes ~21,000 in average daily transaction volume at one of the active businesses.',
-        'Own the product end-to-end: architecture, development, on-site setup and support.'
+        '<b>FK Asistan</b> — an LLM assistant inside the till and the owner\'s phone panel, sharing one chat. Ask about sales, profit, stock, cash and supplier debt in plain language, by typing or by voice.',
+        'Tool-calling design: the model never calculates figures. It calls the app\'s own report functions, so every number matches the Reports screen, and only the answer to the question asked is sent to the model — never the database.',
+        'Safe actions: price, stock, new-product, supplier-debt and credit entries are only proposed. A preview card appears and nothing changes until the owner taps <b>Approve</b>; <b>Undo</b> reverses it.',
+        'Invoice photo → goods receipt: a vision model reads the invoice lines, the app matches them to products, and the owner confirms stock, purchase prices and the supplier debt on one card (tap a line to correct it).',
+        'AI commentary on reports: the AI explains the month and suggests what to do (restock, quiet days, slow items) while the figures still come from Reports. Every answer collects 👍/👎 feedback.',
+        'Server side: the AI provider key lives only in a Supabase Edge Function, never in the app. Per-business daily usage limit, a provider-agnostic message format, and the assistant is sold as an add-on to the cloud plan.',
+        'Photo receipts: the receipt prints a QR code; the customer takes a photo on their phone and it is printed on the receipt in black and white, then deleted.',
+        'Remote owner panel on the phone (Supabase): today\'s sales, cash, history and critical stock, plus quick sales, stock counting and goods receiving; light and dark mode.',
+        'Offline-first architecture: sales and register operations keep working without internet. The till state syncs to Supabase when connectivity returns and every 2 minutes, with an encrypted automatic cloud backup and an encrypted single-file <code>.POS</code> backup format.',
+        'Sales, inventory, accounts, invoicing, bulk price-update and reporting modules; barcode scanner, electronic scale, thermal printer and customer display integrated in Rust via Tauri commands. ~21,000 in average daily transaction volume at one active business. I own the product end-to-end: architecture, development, releases, on-site setup and support.'
       ],
       tr: [
-        'Offline-first mimari: satışlar ve kasa işlemleri internet bağlantısı olmadan da çalışmaya devam ediyor.',
-        'Supabase bulut modülü: kasanın güncel durumu internet geldiğinde ve 2 dakikada bir otomatik senkronize ediliyor.',
-        'Barkod okuyucu, elektronik tartı, termal fiş yazıcısı ve ikinci müşteri ekranı entegrasyonları Rust ile Tauri komutları üzerinden.',
-        'Şifrelenmiş, tek dosyalık <code>.POS</code> yedekleme formatı tasarladım.',
-        'Satış, stok, cari hesap, irsaliye, toplu fiyat güncelleme ve raporlama modülleri.',
-        'Aktif işletmelerden birinde günlük ortalama ~21.000 işlem hacmi işleniyor.',
-        'Ürünün tamamından sorumluyum: mimari, geliştirme, müşteride kurulum ve destek.'
+        '<b>FK Asistan</b> — kasanın ve işletme sahibinin telefon panelinin içinde, tek ortak sohbetle çalışan bir LLM asistanı. Satış, kâr, stok, kasa ve toptancı borcunu sade bir dille, yazarak ya da sesle sorabiliyorsunuz.',
+        'Araç çağırma (tool calling) tasarımı: model rakamları hesaplamıyor. Uygulamanın kendi rapor fonksiyonlarını çağırıyor; böylece her rakam Raporlar ekranıyla birebir tutuyor ve modele veritabanı değil, yalnızca sorulan sorunun cevabı gidiyor.',
+        'Güvenli işlemler: fiyat, stok, yeni ürün, toptancı borcu ve veresiye kayıtları yalnızca öneri olarak çıkıyor. Önizleme kartı gelir; işletme sahibi <b>Onayla</b> diyene kadar hiçbir şey değişmez, <b>Geri Al</b> ile geri alınır.',
+        'Fatura fotoğrafından mal kabul: görüntü okuyan bir model fatura satırlarını okuyor, uygulama bunları ürünlerle eşleştiriyor; stok, alış fiyatı ve toptancı borcu tek bir kartta onaylanıyor (satıra dokunup düzeltilebiliyor).',
+        'Raporlara yapay zeka yorumu: AI ayı özetliyor ve ne yapılacağını öneriyor (stok yenileme, durgun günler, az satanlar); rakamlar yine Raporlar\'dan geliyor. Her cevapta 👍/👎 geri bildirimi toplanıyor.',
+        'Sunucu tarafı: yapay zeka sağlayıcısının anahtarı yalnızca bir Supabase Edge Function\'da duruyor, uygulamada yok. İşletme başına günlük kullanım hakkı, sağlayıcıdan bağımsız mesaj biçimi; asistan Bulut paketine ek olarak ayrı satılıyor.',
+        'Fotoğraflı fiş: fiş bir QR kod basıyor; müşteri telefonuyla fotoğraf çekiyor, fotoğraf siyah-beyaz olarak fişe basılıyor ve ardından siliniyor.',
+        'Telefonda uzaktan işletme sahibi paneli (Supabase): bugünkü satış, kasa, geçmiş ve kritik stok; ayrıca hızlı satış, stok sayımı ve mal kabul; aydınlık ve karanlık mod.',
+        'Offline-first mimari: satışlar ve kasa işlemleri internet olmadan çalışmaya devam ediyor. Kasanın durumu bağlantı gelince ve 2 dakikada bir Supabase\'e senkronize ediliyor; şifreli otomatik bulut yedeği ve şifreli, tek dosyalık <code>.POS</code> yedek formatı var.',
+        'Satış, stok, cari hesap, irsaliye, toplu fiyat güncelleme ve raporlama modülleri; barkod okuyucu, elektronik tartı, termal yazıcı ve müşteri ekranı entegrasyonları Rust ile Tauri komutları üzerinden. Aktif işletmelerden birinde günlük ortalama ~21.000 işlem hacmi. Ürünün tamamından sorumluyum: mimari, geliştirme, sürümler, müşteride kurulum ve destek.'
       ],
       ru: [
-        'Offline-first архитектура: продажи и кассовые операции продолжают работать без подключения к интернету.',
-        'Облачный модуль на Supabase: состояние кассы автоматически синхронизируется при появлении связи и каждые 2 минуты.',
-        'Интеграции сканера штрихкодов, электронных весов, термопринтера чеков и второго экрана покупателя на Rust через команды Tauri.',
-        'Зашифрованный резервный формат <code>.POS</code> в одном файле.',
-        'Модули продаж, склада, контрагентов, накладных, массового обновления цен и отчётности.',
-        'На одном из действующих предприятий средний дневной объём транзакций — около 21 000.',
-        'Отвечаю за продукт целиком: архитектура, разработка, установка у клиента и поддержка.'
+        '<b>FK Asistan</b> — LLM-ассистент внутри кассы и панели владельца на телефоне с одним общим чатом. О продажах, прибыли, остатках, кассе и долгах поставщикам можно спрашивать простым языком — текстом или голосом.',
+        'Архитектура на вызове инструментов (tool calling): модель не считает цифры. Она вызывает собственные функции отчётов приложения, поэтому каждая цифра совпадает с экраном «Отчёты», а в модель уходит только ответ на заданный вопрос, а не база данных.',
+        'Безопасные действия: изменения цен, остатков, новые товары, долги поставщикам и записи в долг только предлагаются. Появляется карточка предпросмотра, и пока владелец не нажмёт <b>Подтвердить</b>, ничего не меняется; <b>Отмена</b> всё откатывает.',
+        'Фото накладной → приёмка товара: модель с распознаванием изображений читает строки накладной, приложение сопоставляет их с товарами, а владелец подтверждает остатки, закупочные цены и долг поставщику в одной карточке (строку можно поправить касанием).',
+        'ИИ-комментарий к отчётам: ИИ разбирает месяц и подсказывает, что делать (пополнить запасы, тихие дни, медленные товары), а цифры по-прежнему берутся из «Отчётов». Под каждым ответом собирается оценка 👍/👎.',
+        'Серверная часть: ключ ИИ-провайдера хранится только в Supabase Edge Function, но не в приложении. Суточный лимит на предприятие, формат сообщений, независимый от провайдера; ассистент продаётся отдельным дополнением к облачному тарифу.',
+        'Фото на чеке: на чеке печатается QR-код; клиент снимает фото на телефон, и оно печатается на чеке в чёрно-белом виде, после чего удаляется.',
+        'Удалённая панель владельца на телефоне (Supabase): продажи за сегодня, касса, история и критичные остатки, а также быстрые продажи, инвентаризация и приёмка товара; светлая и тёмная темы.',
+        'Offline-first архитектура: продажи и кассовые операции работают без интернета. Состояние кассы синхронизируется с Supabase при появлении связи и каждые 2 минуты, есть зашифрованное автоматическое облачное резервное копирование и зашифрованный формат резервной копии <code>.POS</code> в одном файле.',
+        'Модули продаж, склада, контрагентов, накладных, массового обновления цен и отчётности; интеграции сканера штрихкодов, электронных весов, термопринтера и второго экрана покупателя на Rust через команды Tauri. На одном из действующих предприятий средний дневной объём транзакций — около 21 000. Отвечаю за продукт целиком: архитектура, разработка, релизы, установка у клиента и поддержка.'
       ]
     },
     metrics: [
       { v: '5', l: { en: 'active businesses', tr: 'aktif işletme', ru: 'предприятий' } },
-      { v: '8', l: { en: 'industry versions', tr: 'sektörel versiyon', ru: 'отраслевых версий' } },
-      { v: '2 min', vtr: '2 dk', vru: '2 мин', l: { en: 'cloud sync interval', tr: 'bulut senkron aralığı', ru: 'интервал синхронизации' } }
+      { v: '8', l: { en: 'industry versions', tr: 'sektörel versiyon', ru: 'версий для отраслей' } },
+      { v: '3', l: { en: 'AI inputs (text, voice, photo)', tr: 'AI girişi (yazı, ses, foto)', ru: 'входа для ИИ' } }
     ],
-    stack: ['React', 'TypeScript', 'Tauri', 'Rust', 'Supabase', 'PostgreSQL', 'Windows'],
+    stack: ['LLM tool calling', 'Groq', 'Whisper', 'Vision AI', 'React', 'TypeScript', 'Tauri', 'Rust', 'Supabase', 'Edge Functions', 'PostgreSQL', 'Windows'],
+    note: {
+      en: 'Screenshots use fictional demo data.',
+      tr: 'Ekran görüntülerinde uydurma demo verisi kullanılmıştır.',
+      ru: 'На скриншотах — вымышленные демонстрационные данные.'
+    },
     link: { url: 'https://fkposyazilim.com', label: 'fkposyazilim.com', type: 'site' },
     frame: 'fkposyazilim.com',
-    images: ['assets/img/fkpos/1.webp', 'assets/img/fkpos/2.webp', 'assets/img/fkpos/3.webp'],
+    images: [
+      'assets/img/fkpos/cover.webp',
+      'assets/img/fkpos/till-assistant.webp',
+      'assets/img/fkpos/ai-report.webp',
+      'assets/img/fkpos/goods-receipt.webp',
+      'assets/img/fkpos/phone-assistant.webp',
+      'assets/img/fkpos/phone-panel.webp',
+      'assets/img/fkpos/photo-receipt.webp'
+    ],
     captions: {
-      en: ['Sales screen', 'Management dashboard', 'Login'],
-      tr: ['Satış ekranı', 'Yönetim paneli', 'Giriş ekranı'],
-      ru: ['Экран продаж', 'Панель управления', 'Вход']
+      en: [
+        'FK Asistan on the till and on the phone',
+        'Ask about sales in plain language — the same chat on the till and the phone',
+        'AI commentary on the monthly report: figures come from Reports, the AI only interprets',
+        'Goods receipt from an invoice photo — nothing changes until you approve',
+        'Phone assistant: questions, sales suggestions and goods receipt',
+        'Remote owner panel: today, history and dark mode',
+        'Photo receipt: QR on the receipt → photo on the phone → printed on the receipt'
+      ],
+      tr: [
+        'FK Asistan kasada ve telefonda',
+        'Satışları sade bir dille sorun — kasada ve telefonda aynı sohbet',
+        'Aylık rapora yapay zeka yorumu: rakamlar Raporlar\'dan gelir, yapay zeka yalnızca yorumlar',
+        'Fatura fotoğrafından mal kabul — siz onaylamadan hiçbir şey değişmez',
+        'Telefonda asistan: sorular, satış önerileri ve mal kabul',
+        'Uzaktan işletme sahibi paneli: bugün, geçmiş ve karanlık mod',
+        'Fotoğraflı fiş: fişteki QR → telefonda fotoğraf → fişe basılır'
+      ],
+      ru: [
+        'FK Asistan на кассе и на телефоне',
+        'Вопросы о продажах простым языком — один и тот же чат на кассе и на телефоне',
+        'ИИ-комментарий к месячному отчёту: цифры берутся из «Отчётов», ИИ только интерпретирует',
+        'Приёмка товара по фото накладной — ничего не меняется без вашего подтверждения',
+        'Ассистент на телефоне: вопросы, рекомендации по продажам и приёмка товара',
+        'Удалённая панель владельца: сегодня, история и тёмная тема',
+        'Фото на чеке: QR на чеке → снимок на телефоне → печать на чеке'
+      ]
     }
   },
   {
@@ -339,21 +390,24 @@ window.TIMELINE = {
       bullets: {
         en: [
           'Offline-capable POS software for small businesses: 8 industry versions, used by 5 active businesses.',
-          'Supabase cloud sync, hardware integrations in Rust via Tauri, encrypted single-file backups.',
+          'FK Asistan: an LLM assistant (tool calling) that answers business questions, proposes price and stock changes for approval and reads supplier invoices from photos.',
+          'Supabase cloud sync and a phone panel for the owner, hardware integrations in Rust via Tauri, encrypted backups.',
           'Own the product end-to-end: architecture, development, on-site setup and support.'
         ],
         tr: [
           'Küçük işletmeler için offline çalışabilen kasa yazılımı: 8 sektörel versiyon, 5 aktif işletmede kullanımda.',
-          'Supabase bulut senkronu, Tauri üzerinden Rust ile donanım entegrasyonları, şifreli tek dosyalık yedekleme.',
+          'FK Asistan: işletme sorularını yanıtlayan, fiyat ve stok değişikliklerini onaya sunan ve fatura fotoğraflarını okuyan LLM asistanı (tool calling).',
+          'Supabase bulut senkronu ve işletme sahibi için telefon paneli, Tauri üzerinden Rust ile donanım entegrasyonları, şifreli yedekleme.',
           'Ürünün tamamından sorumluyum: mimari, geliştirme, müşteride kurulum ve destek.'
         ],
         ru: [
           'Кассовое ПО с offline-режимом для малого бизнеса: 8 отраслевых версий, используется в 5 действующих предприятиях.',
-          'Облачная синхронизация на Supabase, интеграции с оборудованием на Rust через Tauri, зашифрованные резервные копии в одном файле.',
+          'FK Asistan: LLM-ассистент (tool calling), который отвечает на вопросы о бизнесе, предлагает изменения цен и остатков на подтверждение и читает накладные по фото.',
+          'Облачная синхронизация на Supabase и панель владельца на телефоне, интеграции с оборудованием на Rust через Tauri, зашифрованные резервные копии.',
           'Отвечаю за продукт целиком: архитектура, разработка, установка у клиента и поддержка.'
         ]
       },
-      stack: ['React', 'TypeScript', 'Tauri', 'Rust', 'Supabase']
+      stack: ['React', 'TypeScript', 'Tauri', 'Rust', 'Supabase', 'LLM tool calling']
     },
     {
       org: 'VK (VKontakte)',
